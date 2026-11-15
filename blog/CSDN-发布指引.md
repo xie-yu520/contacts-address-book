@@ -74,7 +74,7 @@ CSDN 版做了 5 处适配，直接粘原版会出问题：
 | 4 | 5.2 新建 / 编辑 | `screen_edit.png` | 多联系方式动态增删 |
 | 5 | 5.3 导入预览 | `screen_import.png` | 与第 2 张同一文件 |
 | 6 | 5.4 移动端适配 | `screen_mobile.png` | 390px 窄屏单栏 |
-| 7 | 5.6 云端部署 | `screen_online.png` | 公网链接实际打开的页面 |
+| 7 | 5.6 云端部署 | `screen_online.png` | 项目在公网环境运行的实拍页面 |
 | 8 | 7. GitHub 提交历史 | `git_commits.png` | 真实 GitHub Commits 页截图 |
 
 另有 `git_log_summary.png` 只在第 7 节作为**链接**引用（不是插图），CDN 能打开就不用管。

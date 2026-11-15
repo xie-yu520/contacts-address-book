@@ -148,7 +148,7 @@
 </tr>
 <tr>
 <td>在线访问地址</td>
-<td><a href="https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE"><code>wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host</code></a>（公网静态托管，非 localhost，对应作业 1.4）</td>
+<td><a href="http://103.236.97.121:33555"><code>103.236.97.121:33555</code></a>（云服务器 ECS，非 localhost，对应作业 1.4）</td>
 </tr>
 <tr>
 <td>演示视频</td>
@@ -524,11 +524,12 @@ function parseHeader(raw) {
 </blockquote>
 <h3 id="56">5.6 云端部署：公网可访问</h3>
 <p><img alt="线上运行截图" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_online.png" /></p>
-<p>作业 1.4 的可选加分项已完成：把纯静态站点发布到公网托管（无需构建、无需后端），
-浏览器直接打开<a href="https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE">在线地址</a>
-即可使用。上图为通过公网链接实际打开的页面，顶栏、搜索、导入/导出、收藏与详情均正常；
+<p>作业 1.4 的可选加分项：把纯静态站点部署到云服务器 <code>103.236.97.121:33555</code>
+（无需构建、无需后端），浏览器直接打开<a href="http://103.236.97.121:33555">在线地址</a>即可使用。
+部署时把 <code>index.html</code>、<code>css/</code>、<code>js/</code>、<code>vendor/</code> 上传到服务器，由 Nginx 监听 <code>33555</code> 端口对外提供静态文件；
+上图为项目在公网环境运行的实拍页面，顶栏、搜索、导入/导出、收藏与详情均正常。
 数据仍保存在浏览器 <code>localStorage</code>，因此不同设备之间不共享 —— 这是纯静态方案的固有限制，如实说明。
-部署方案与验证清单见 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/DEPLOY.md"><code>docs/DEPLOY.md</code></a>。</p>
+部署命令、Nginx 配置与验证清单见 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/DEPLOY.md"><code>docs/DEPLOY.md</code></a>。</p>
 <h2 id="6">6. 测试与验证</h2>
 <p>Excel 是最容易出错的部分（格式、表头、编码、往返一致性），因此单独抽出来做了自动化测试：
 <code>test/excel.spec.js</code> 用 Node 原生 <code>vm</code> 加载 <code>store.js</code> + <code>excel.js</code>，<strong>不需要安装任何依赖</strong>：</p>
@@ -799,7 +800,7 @@ function parseHeader(raw) {
 </ol>
 <p>后续可以继续做的方向：</p>
 <ul>
-<li><strong>账号体系与多端同步</strong>：1.4 的公网静态托管已完成，下一步是接后端把 <code>localStorage</code>
+<li><strong>账号体系与多端同步</strong>：1.4 的云服务器部署已完成，下一步是接后端把 <code>localStorage</code>
   换成数据库，配合登录实现多端同步（目前数据在浏览器本地，不同设备不共享）；</li>
 <li><strong>联系人分组与标签</strong>：目前只有「收藏」一个维度，可以扩展成多标签；</li>
 <li><strong>导入冲突让用户选</strong>：现在同名是「自动合并」，可以做成对比界面让用户逐条决定保留哪边；</li>

@@ -2,7 +2,7 @@
 
 > 软件工程（FZU–MU）课程作业 · 个人项目
 > 一个**纯前端、零构建**的通讯录应用：支持收藏联系人、多联系方式、Excel 导入导出。
-> 在线体验：<https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE>
+> 在线体验：<http://103.236.97.121:33555>
 
 ![HTML5](https://img.shields.io/badge/HTML5-CSS3-JavaScript-blue)
 ![build](https://img.shields.io/badge/build-none-success)
@@ -101,11 +101,12 @@ node test/excel.spec.js
 
 ## 云端部署（作业 1.4，+15 分 · 已完成）
 
-在线地址：<https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE>
-（公网静态托管，非 localhost；[部署证据截图](assets/screen_online.png)）。
+在线地址：<http://103.236.97.121:33555>
+（云服务器 ECS，非 localhost；[运行截图](assets/screen_online.png)）。
 
-本项目零构建、纯静态，已将运行所需文件发布为公网可访问的页面。自建云服务器 / 对象存储 /
-GitHub Pages 的替代方案与 Nginx 配置见 [docs/DEPLOY.md](docs/DEPLOY.md)。
+本项目零构建、纯静态：把 `index.html`、`css/`、`js/`、`vendor/` 上传到服务器，
+用 Nginx 监听 `33555` 端口即可对外提供页面，并在云控制台安全组放行该端口。
+完整命令与配置见 [docs/DEPLOY.md](docs/DEPLOY.md)；其他静态托管平台作为备选方案亦在其中。
 数据保存在浏览器 `localStorage`，不同设备之间不共享。
 
 ## License

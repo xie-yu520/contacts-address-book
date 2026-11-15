@@ -1,41 +1,41 @@
-# 云端部署说明（作业 1.4 可选项，+15 分 · 已完成）
+# 云端部署说明（作业 1.4 可选项，+15 分）
 
-> **已完成部署**：公网地址
-> <https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE>
-> （WorkBuddy 静态托管，非 localhost），证据截图 `assets/screen_online.png`。
-> 博客第 1 节与第 5.6 节已同步标注访问地址与托管方式。
+> **部署目标**：云服务器 `103.236.97.121`，对外端口 `33555`
+> 访问地址：<http://103.236.97.121:33555>（非 localhost）
+> 方式：ECS + Nginx 提供静态文件；运行截图 `assets/screen_online.png`。
 >
-> 作业要求「部署在云服务器，如华为云 / 阿里云」，localhost 链接不计分；本项目采用公网静态托管。
-> 下文方案 A / B 是「改用自己的云服务器或其他静态托管平台」的替代做法，供后续扩展参考。
+> 作业要求「部署在云服务器，如华为云 / 阿里云」，localhost 链接不计分。
+> 服务器登录凭据由云服务商提供，**仅本人保管，切勿写入公开仓库或博客**。
 
 本项目是纯静态站点（只有 `index.html` / `css/` / `js/` / `vendor/`），
-没有构建步骤、没有后端、没有环境变量，**把仓库文件放到任意能对外提供 HTTP 的服务器即可运行**。
+没有构建步骤、没有后端、没有环境变量，**把运行所需文件放到任意能对外提供 HTTP 的服务器即可运行**。
 
-## 方案 A：云服务器 + Nginx（最贴合题意）
+## 方案 A：云服务器 + Nginx 监听 33555（本次采用）
 
-以华为云 ECS / 阿里云 ECS（Ubuntu 22.04）为例：
+> 国内云服务器的 `80` / `443` 端口通常要求域名完成 ICP 备案，未备案时会返回云厂商的
+> 「网站无法访问」拦截页。因此本次改用非标端口 `33555` 对外提供服务，
+> 同时需要在云控制台**安全组放行 TCP 33555**。
 
 ```bash
-# 1. 登录云服务器，安装 Nginx
-sudo apt update && sudo apt install -y nginx
+# 1. 用云服务商提供的 SSH 凭据登录服务器，安装 Nginx
+sudo yum install -y nginx          # CentOS 7
+# 或：sudo apt update && sudo apt install -y nginx   # Ubuntu
 
-# 2. 创建站点目录
-sudo mkdir -p /var/www/addressbook
-
-# 3. 在本机（Windows Git Bash）上传文件，只传运行所需的静态资源
+# 2. 在本机（Windows Git Bash）打包上传，只传运行所需的静态资源
 cd C:/Users/10445/Desktop/联系人
-scp -r index.html css js vendor 用户名@服务器公网IP:/tmp/addressbook/
-# 然后在服务器上：
+scp -P <SSH端口> -r index.html css js vendor <用户名>@103.236.97.121:/tmp/addressbook/
+# 服务器上：
+sudo mkdir -p /var/www/addressbook
 sudo mv /tmp/addressbook/* /var/www/addressbook/
-sudo chown -R www-data:www-data /var/www/addressbook
+sudo chown -R nginx:nginx /var/www/addressbook    # Ubuntu 用 www-data:www-data
 ```
 
-新建 `/etc/nginx/sites-available/addressbook`：
+新建 `/etc/nginx/conf.d/addressbook.conf`：
 
 ```nginx
 server {
-    listen 80;
-    server_name 你的域名或公网IP;
+    listen 33555;
+    server_name 103.236.97.121;
 
     root /var/www/addressbook;
     index index.html;
@@ -44,7 +44,6 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
-    # 静态资源缓存
     location ~* \.(css|js|png|svg|ico)$ {
         expires 7d;
         add_header Cache-Control "public";
@@ -56,17 +55,17 @@ server {
 ```
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/addressbook /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
+sudo nginx -t && sudo systemctl enable --now nginx
+sudo firewall-cmd --add-port=33555/tcp --permanent 2>/dev/null && sudo firewall-cmd --reload
 ```
 
-最后在云控制台**安全组放行 80 端口**（HTTPS 可用 Let's Encrypt `certbot --nginx` 追加）。
-浏览器访问 `http://公网IP/` 验证：能打开页面、能新建联系人、能导出 Excel、刷新后数据仍在。
+浏览器访问 `http://103.236.97.121:33555/` 验证：能打开页面、能新建联系人、能导出 Excel、刷新后数据仍在。
 
+> 若服务器已有 Web 服务占用 80 端口，可保留不动，只新增上面的 `33555` server 块。
 > 数据存在浏览器 `localStorage`，不同设备之间不共享；这是纯静态方案的固有限制，
 > 博客里应如实说明，不要写成「多端同步」。
 
-## 方案 B：静态托管（更快取得公网链接）
+## 方案 B：静态托管（备选，最快取得公网链接）
 
 任选其一，把仓库 push 到 GitHub 后导入即可，几分钟内有 HTTPS 公网地址：
 
@@ -80,16 +79,27 @@ sudo nginx -t && sudo systemctl reload nginx
 
 ## 部署后已同步更新的位置
 
-1. `blog/博客-通讯录.md` 第 1 节「在线访问地址」已填公网 URL；
-2. 新增第 5.6 节「云端部署：公网可访问」，附 `assets/screen_online.png` 实拍页面；
-3. `README.md` 顶部与「云端部署」章节已给出在线预览地址。
+1. 两个博客版本第 1 节「在线访问地址」与第 5.6 节「云端部署」均已指向该云服务器；
+2. `README.md` 顶部在线体验链接与「云端部署」章节；
+3. `docs/SUBMIT.md` 提交状态清单中的云端部署条目。
 
-> 截图为通过公网链接真实打开的页面渲染结果。若老师要求看到浏览器地址栏，
-> 用普通浏览器打开上面的公网地址自行截一张即可，无需修改仓库内容。
+> 若老师要求看到浏览器地址栏，用普通浏览器打开 `http://103.236.97.121:33555/`
+> 自行截一张覆盖 `assets/screen_online.png` 即可，博客里的引用路径无需改动。
+
+## 常见问题排查
+
+| 现象 | 原因与处理 |
+| --- | --- |
+| 打开 `http://103.236.97.121/` 显示「网站无法访问 / 未备案」 | 国内云厂商对 80 端口的默认拦截页，改用非标端口 `33555`，或完成域名备案 |
+| 访问 `33555` 连接被重置 / 超时 | Nginx 未启动，或安全组 / 系统防火墙未放行 TCP 33555；用 `ss -lntp \| grep 33555` 与控制台安全组核对 |
+| SSH 认证失败 | 确认云控制台提供的**用户名**与登录方式（密码 / 密钥），部分镜像默认用户不是 `root` |
+| 页面能开但导出 Excel 报错 | 检查 `vendor/xlsx.full.min.js` 是否随其它静态文件一起上传 |
+| 刷新后数据丢失 | 正常现象：数据存在浏览器 localStorage，换浏览器 / 无痕模式不会共享 |
 
 ## 验证清单
 
 - [ ] 公网地址可直接打开（不是 `localhost` / `127.0.0.1`）
+- [ ] 安全组已放行 TCP `33555`，`ss -lntp` 中 Nginx 正在监听
 - [ ] 新建 / 编辑 / 删除联系人正常
 - [ ] 星标收藏与「收藏」筛选正常
 - [ ] 导出 `.xlsx` 能下载且 Excel 可打开

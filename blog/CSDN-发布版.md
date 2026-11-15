@@ -27,7 +27,7 @@
 | --- | --- |
 | GitHub 仓库 | [`https://github.com/xie-yu520/contacts-address-book`](https://github.com/xie-yu520/contacts-address-book) |
 | 代码规范 | [`docs/CODE_STYLE.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md) |
-| 在线访问地址 | [`wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host`](https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE)（公网静态托管，非 localhost，对应作业 1.4） |
+| 在线访问地址 | [`103.236.97.121:33555`](http://103.236.97.121:33555)（云服务器 ECS，非 localhost，对应作业 1.4） |
 | 演示视频 | [`assets/demo.mp4`](https://github.com/xie-yu520/contacts-address-book/blob/main/assets/demo.mp4)（43 秒完整运行演示，可直接提交） |
 | 发布执行记录 | [`docs/SUBMIT.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/SUBMIT.md)（push / PR / Release 实际执行记录） |
 | 示例数据 | [`docs/通讯录示例.xlsx`](https://github.com/xie-yu520/contacts-address-book/raw/main/docs/通讯录示例.xlsx)（可直接用于测试「导入」） |
@@ -311,11 +311,12 @@ function parseHeader(raw) {
 
 ![线上运行截图](https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_online.png)
 
-作业 1.4 的可选加分项已完成：把纯静态站点发布到公网托管（无需构建、无需后端），
-浏览器直接打开[在线地址](https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE)
-即可使用。上图为通过公网链接实际打开的页面，顶栏、搜索、导入/导出、收藏与详情均正常；
+作业 1.4 的可选加分项：把纯静态站点部署到云服务器 `103.236.97.121:33555`
+（无需构建、无需后端），浏览器直接打开[在线地址](http://103.236.97.121:33555)即可使用。
+部署时把 `index.html`、`css/`、`js/`、`vendor/` 上传到服务器，由 Nginx 监听 `33555` 端口对外提供静态文件；
+上图为项目在公网环境运行的实拍页面，顶栏、搜索、导入/导出、收藏与详情均正常。
 数据仍保存在浏览器 `localStorage`，因此不同设备之间不共享 —— 这是纯静态方案的固有限制，如实说明。
-部署方案与验证清单见 [`docs/DEPLOY.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/DEPLOY.md)。
+部署命令、Nginx 配置与验证清单见 [`docs/DEPLOY.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/DEPLOY.md)。
 
 ## 6. 测试与验证
 
@@ -463,7 +464,7 @@ $ node test/excel.spec.js
 
 后续可以继续做的方向：
 
-- **账号体系与多端同步**：1.4 的公网静态托管已完成，下一步是接后端把 `localStorage`
+- **账号体系与多端同步**：1.4 的云服务器部署已完成，下一步是接后端把 `localStorage`
   换成数据库，配合登录实现多端同步（目前数据在浏览器本地，不同设备不共享）；
 - **联系人分组与标签**：目前只有「收藏」一个维度，可以扩展成多标签；
 - **导入冲突让用户选**：现在同名是「自动合并」，可以做成对比界面让用户逐条决定保留哪边；

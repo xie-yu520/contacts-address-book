@@ -11,14 +11,14 @@
 
 | 占位符 | 换成 | 出现位置 |
 | --- | --- | --- |
-| `YOUR_GITHUB_ID` | 你的 GitHub 用户名 | 第 1 节仓库地址、`git clone` 命令、第 7 节截图说明 |
+| `xie-yu520` | 你的 GitHub 用户名 | 第 1 节仓库地址、`git clone` 命令、第 7 节截图说明 |
 | `YOUR_STUDENT_ID` | 你的学号 | 第 10 节贡献度表（PSP 表不需要学号） |
 | `YOUR_VIDEO_URL` | 演示视频的在线链接 | 第 5.5 节 |
 
 > 如果暂时拿不到视频链接，可以先删掉这一行并保留仓库内的
 > `assets/demo.mp4` 作为本地证据，但评分项里「完整运行视频」最好还是贴在线链接。
 
-`YOUR_DEPLOY_URL` 只在做第 1.4 节云端部署时才需要；不做可选项就保持「未部署」的说法。
+`https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE` 只在做第 1.4 节云端部署时才需要；不做可选项就保持「未部署」的说法。
 
 ## 1. 修正提交作者邮箱（**push 之前做**）
 
@@ -62,7 +62,7 @@ git log --all --pretty=format:'%h %an <%ae> %s' | head -10
 2. 回到本地执行：
 
 ```bash
-git remote add origin https://github.com/YOUR_GITHUB_ID/contacts-address-book.git
+git remote add origin https://github.com/xie-yu520/contacts-address-book.git
 git branch -M main
 
 git push -u origin main
@@ -70,7 +70,7 @@ git push origin release/v1.0.0
 git push origin v1.0.0
 ```
 
-3. 打开 `https://github.com/YOUR_GITHUB_ID/contacts-address-book/commits/main` 确认
+3. 打开 `https://github.com/xie-yu520/contacts-address-book/commits/main` 确认
    **至少 7 个提交都在、作者都显示成你本人**（含「补齐发布材料」提交共 8 次）。
    `git shortlog -sn --all` 应该只输出一位贡献者，且全部提交都归本人。
 
@@ -94,7 +94,7 @@ git push origin v1.0.0
 `assets/git_commits.png` 是**本地 `git log --all` 渲染出的真实提交历史图**
 （v1.0.0 发布阶段快照），push 之前就能放进博客，已包含 7 次提交、分支/标签与贡献者统计。
 若老师要求看到 GitHub 页面，请再截一张
-`https://github.com/YOUR_GITHUB_ID/contacts-address-book/commits/main`
+`https://github.com/xie-yu520/contacts-address-book/commits/main`
 覆盖 `assets/git_commits.png`（博客里的引用路径不用改）。
 
 ## 5. 上传演示视频
@@ -120,7 +120,7 @@ git push origin v1.0.0
 
 作业 1.4 要求部署到云服务器（localhost 链接不算）。当前博客按「不做可选项」撰写。
 如果临时决定要拿这 15 分，可让助手把本项目发布成一个公网可访问的静态站点，
-拿到链接后替换博客里的 `YOUR_DEPLOY_URL`，并把第 12 节自查表中
+拿到链接后替换博客里的 `https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE`，并把第 12 节自查表中
 「云端部署」一行改成 ✅、把第 11 节「后续改进」里对应的说法同步改掉。
 `docs/DEPLOY.md` 里另有自建云服务器 / 对象存储的两套方案。
 

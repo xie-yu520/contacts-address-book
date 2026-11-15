@@ -2,7 +2,7 @@
 
 > 作业截止：**2026-11-17 23:59**。博客发布后需要审核，请至少提前一天发布。
 >
-> 本文件记录已完成的发布动作，以及**只剩两件必须由本人完成的事**。
+> 本文件记录已完成的发布动作，以及**只剩一件必须由本人完成的事：发布博客**。
 
 ## 1. 已完成（本机 + 已登录的 GitHub 账号）
 
@@ -11,7 +11,7 @@
 | 代码与文档 | `index.html` / `css/` / `js/` 三层实现、`test/excel.spec.js`、README、代码规范、作业博客、PSP 表 |
 | 提交作者邮箱 | 已统一为 GitHub 官方 noreply 地址 `286552973+xie-yu520@users.noreply.github.com`，Commits 页显示 `Verified` 且归属本人 |
 | GitHub 仓库 | <https://github.com/xie-yu520/contacts-address-book>（公开，默认分支 `main`） |
-| 提交历史 | 10 余次提交，全部由 `xie-yu520` 提交；`main`、`release/v1.0.0` 分支与 `v1.0.0` 标签均已 push |
+| 提交历史 | 11 次提交，全部由 `xie-yu520` 提交；`main`、`release/v1.0.0` 分支与 `v1.0.0` 标签均已 push |
 | Pull Request | [#1 release: v1.0.0 发布](https://github.com/xie-yu520/contacts-address-book/pull/1)（release → main），**已合并** |
 | 版本发布 | [Release v1.0.0](https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0)，附 `CHANGELOG.md` 说明与 `docs/通讯录示例.xlsx` |
 | 云端部署（+15） | 公网地址 <https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE>（非 localhost），证据 `assets/screen_online.png` |
@@ -19,25 +19,31 @@
 | 提交历史截图 | `assets/git_commits.png`（真实 GitHub Commits 页）+ `assets/git_log_summary.png`（本地 git log 汇总） |
 | 测试 | `node test/excel.spec.js` → **15 项全通过**；文档相对链接 0 断裂 |
 | 博客占位符 | GitHub 用户名 `xie-yu520`、学号 `832401224`、在线访问地址均已填真实值 |
+| CSDN 发布版 | [`blog/CSDN-发布版.md`](../blog/CSDN-发布版.md)：图片改公网 CDN、mermaid 改架构图、目录改 `@[TOC]`、相对链接改绝对地址、无占位符，可直接粘贴发布 |
+| 模块架构图 | `assets/architecture.png`（替代 CSDN 不渲染的 mermaid 流程图） |
+| 发布指引 | [`blog/CSDN-发布指引.md`](../blog/CSDN-发布指引.md)：标题/摘要/标签、图片对照表、裂图排查、发布后自检 |
 
-## 2. 仍需本人完成（只剩 2 件）
+## 2. 仍需本人完成（只剩 1 件：发布博客）
 
-### ① 上传演示视频并填链接
+### ① 视频链接 —— 已处理，无需再填
 
-打开 `blog/博客-通讯录.md` 第 5.5 节，把 `YOUR_VIDEO_URL` 换成 B 站 / 腾讯视频 / 网盘的在线链接。
+CSDN 发布版 5.5 节已把 `YOUR_VIDEO_URL` 换成 GitHub 上可在线预览 / 下载的
+`assets/demo.mp4` 链接，作业要求的「完整运行视频」证据已具备。
 
-- 若博客平台支持 HTML5 视频，也可以**直接删掉「视频在线地址」那一行**，
-  保留仓库内 `assets/demo.mp4` 作为证据（视频标签已写在博客里）；
-- 这是全文唯一剩下的占位符，替换后搜索 `YOUR_` 应为 0 结果。
+- 仓库归档版 `blog/博客-通讯录.md` 仍保留占位符，供其他博客平台（博客园 / 知乎等）使用；
+  若用归档版发布，按 5.5 节说明替换成视频链接或直接删掉该行；
+- 可选：把 MP4 传到 B 站 / CSDN 视频，再用编辑器「插入视频」补到 5.5 节，不影响提交。
 
-### ② 提前发布博客
+### ② 提前发布博客（**唯一必做**）
 
-1. 把 `blog/博客-通讯录.md` 正文复制到 CSDN / 博客园 / 知乎专栏等，使用 **Markdown 排版**；
-2. 把相对图片链接改成图床地址，`assets/` 下共 7 个素材：
-   `screen_home.png`、`screen_edit.png`、`screen_import.png`、`screen_mobile.png`、
-   `screen_online.png`、`git_commits.png`、`git_log_summary.png`；
-3. 确认首部的**作业描述表**、**目录**、**PSP 表**、贡献度与评分自查都在；
-4. **提前发布**（发布后需审核），把博客链接填到作业系统；个人项目提交一份博客即可。
+1. 打开 [CSDN 创作中心](https://mp.csdn.net/) → 写博客 → 切到 **Markdown 编辑器**；
+2. 全选复制 [`blog/CSDN-发布版.md`](../blog/CSDN-发布版.md) 正文粘贴进去
+   （或用「导入 Markdown 文件」直接选它），**不要复制 `博客-通讯录.md`**；
+3. 按 [`blog/CSDN-发布指引.md`](../blog/CSDN-发布指引.md) 填标题、摘要、标签、分类、封面；
+4. 确认 `@[TOC]` 生成了目录、8 张图片正常显示、作业描述表 / PSP 表 / 评分自查都在；
+5. **提前发布**（发布后需审核，建议 11-16），把文章链接填到作业系统；个人项目提交一份即可。
+
+> 若外链图片被 CSDN 拦截，点编辑器的「一键转存」或按发布指引第 3 节逐张上传 `assets/` 里的图。
 
 ## 3. 环境备忘（以后 push 遇到网络错误时）
 
@@ -67,5 +73,6 @@ git -c http.proxy=http://127.0.0.1:7890 \
 | ☑ | PR #1 已创建并合并、Release v1.0.0 已发布 |
 | ☑ | 云端部署公网地址可访问（作业 1.4 加分项） |
 | ☑ | 作业描述表、目录、PSP 表、贡献度、评分自查齐全 |
-| ☐ | 视频在线链接已填（或已删掉该行） |
+| ☑ | 视频证据可用（CSDN 发布版已用 GitHub `demo.mp4` 链接替换占位符） |
+| ☑ | CSDN 发布版与发布指引已备好，正文无 `YOUR_` 占位符、无本地相对路径 |
 | ☐ | 博客在 **11-17 23:59 前**发布，且已预留审核时间 |

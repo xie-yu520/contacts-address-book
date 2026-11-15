@@ -1,0 +1,19 @@
+# 依赖与构建产物
+node_modules/
+dist/
+build/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# 本地临时文件
+*.log
+tmp/
+.cache/
+
+# 个人导出文件（避免把真实通讯录提交到仓库）
+exports/

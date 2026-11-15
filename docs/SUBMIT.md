@@ -11,7 +11,7 @@
 | 代码与文档 | `index.html` / `css/` / `js/` 三层实现、`test/excel.spec.js`、README、代码规范、作业博客、PSP 表 |
 | 提交作者邮箱 | 已统一为 GitHub 官方 noreply 地址 `286552973+xie-yu520@users.noreply.github.com`，Commits 页显示 `Verified` 且归属本人 |
 | GitHub 仓库 | <https://github.com/xie-yu520/contacts-address-book>（公开，默认分支 `main`） |
-| 提交历史 | 11 次提交，全部由 `xie-yu520` 提交；`main`、`release/v1.0.0` 分支与 `v1.0.0` 标签均已 push |
+| 提交历史 | 10 余次提交（每次文档更新都会增加，以 GitHub Commits 页实时数字为准），全部由 `xie-yu520` 提交；`main`、`release/v1.0.0` 分支与 `v1.0.0` 标签均已 push |
 | Pull Request | [#1 release: v1.0.0 发布](https://github.com/xie-yu520/contacts-address-book/pull/1)（release → main），**已合并** |
 | 版本发布 | [Release v1.0.0](https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0)，附 `CHANGELOG.md` 说明与 `docs/通讯录示例.xlsx` |
 | 云端部署（+15） | 公网地址 <https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE>（非 localhost），证据 `assets/screen_online.png` |

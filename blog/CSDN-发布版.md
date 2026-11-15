@@ -384,7 +384,7 @@ $ node test/excel.spec.js
 
 | 贡献者 | 提交数 | 占比 | 承担内容 |
 | --- | --- | --- | --- |
-| 谢宇城（xie-yu520） | 11 | 100% | 需求分析、模块设计、三层编码、样式、测试、文档与发版 |
+| 谢宇城（xie-yu520） | 全部（10 余次） | 100% | 需求分析、模块设计、三层编码、样式、测试、文档与发版 |
 
 分支与版本：`main` → 从 `main` 拉出 `release/v1.0.0` → 打 `v1.0.0` 标签 →
 由 `release/v1.0.0` 向 `main` 发起
@@ -485,12 +485,12 @@ $ node test/excel.spec.js
 | 多种联系方式 | 10 | 6 种类型、任意条数、动态增删、类型切换、逐条复制；思路见 4.3，截图见 5.2 | ✅ |
 | Excel 导入导出 | 25 | 导出一人一行/一类一列（同类多值动态展开）、导入别名识别/多值拆分/三档合并 + 导入前预览；思路见 4.4 / 4.5，往返测试见第 6 节，示例文件 `docs/通讯录示例.xlsx` | ✅ |
 | 云端部署（可选加分） | +15 | [公网在线地址](https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE)：纯静态站已发布为公网页面（非 localhost）；证据见 5.6 节与 `assets/screen_online.png`，方案见 `docs/DEPLOY.md` | ✅ 已完成 |
-| GitHub 仓库提交次数 ≥ 3 | — | 11 次提交，全部归属 `xie-yu520`；第 7 节附真实 GitHub Commits 页截图与贡献者统计 | ✅ |
+| GitHub 仓库提交次数 ≥ 3 | — | 10 余次提交，全部归属 `xie-yu520`；第 7 节附真实 GitHub Commits 页截图与贡献者统计 | ✅ |
 | 发版本并发起 Pull Request | — | [PR #1](https://github.com/xie-yu520/contacts-address-book/pull/1) 已合并，[Release v1.0.0](https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0) 已发布，`CHANGELOG.md` 与 `v1.0.0` 标签齐全 | ✅ |
 | PSP 表 / 提交历史截图 / 贡献度 | — | 第 9 节 PSP 表、第 7 节 GitHub 提交历史截图、第 10 节贡献度 100%（学号 832401224） | ✅ |
 
 **结论**：基础分 100 分与可选加分 15 分对应的各项均已具备可核验证据 ——
-GitHub 公开仓库、11 次提交、已合并的 PR #1、已发布的 Release v1.0.0、公网在线站点、
+GitHub 公开仓库、10 余次提交、已合并的 PR #1、已发布的 Release v1.0.0、公网在线站点、
 5 张界面/部署截图、1 张模块架构图、1 张 GitHub 提交历史图、43 秒完整演示视频、
 15 项自动化测试全通过。
 

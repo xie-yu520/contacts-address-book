@@ -14,11 +14,10 @@
 | 提交历史 | 10 余次提交（每次文档更新都会增加，以 GitHub Commits 页实时数字为准），全部由 `xie-yu520` 提交；`main`、`release/v1.0.0` 分支与 `v1.0.0` 标签均已 push |
 | Pull Request | [#1 release: v1.0.0 发布](https://github.com/xie-yu520/contacts-address-book/pull/1)（release → main），**已合并** |
 | 版本发布 | [Release v1.0.0](https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0)，附 `CHANGELOG.md` 说明与 `docs/通讯录示例.xlsx` |
-| 云端部署（+15） | 云服务器 <http://103.236.97.121:33555>（ECS + Nginx 监听 33555，非 localhost），部署说明 [`docs/DEPLOY.md`](DEPLOY.md) |
 | 演示视频 | `assets/demo.mp4`，43 秒真实浏览器录制，覆盖收藏 / 多联系方式 / 搜索 / 导出 / 重新导入去重 / 移动端 |
 | 提交历史截图 | `assets/git_commits.png`（真实 GitHub Commits 页）+ `assets/git_log_summary.png`（本地 git log 汇总） |
 | 测试 | `node test/excel.spec.js` → **15 项全通过**；文档相对链接 0 断裂 |
-| 博客占位符 | GitHub 用户名 `xie-yu520`、学号 `832401224`、在线访问地址均已填真实值 |
+| 博客占位符 | GitHub 用户名 `xie-yu520`、学号 `832401224` 均已填真实值 |
 | CSDN 发布版 | [`blog/CSDN-发布版.md`](../blog/CSDN-发布版.md)：图片改公网 CDN、mermaid 改架构图、目录改 `@[TOC]`、相对链接改绝对地址、无占位符，可直接粘贴发布 |
 | 模块架构图 | `assets/architecture.png`（替代 CSDN 不渲染的 mermaid 流程图） |
 | 发布指引 | [`blog/CSDN-发布指引.md`](../blog/CSDN-发布指引.md)：标题/摘要/标签、图片对照表、裂图排查、发布后检查清单 |
@@ -73,20 +72,11 @@ git -c http.proxy="http://127.0.0.1:$PORT" -c http.extraHeader="$HDR" -c http.ve
 | ✅ | 检查项 |
 | --- | --- |
 | ☑ | `node test/excel.spec.js` → 15 项全过 |
-| ☑ | 博客中的 GitHub 地址、学号、公网访问地址均为真实值 |
+| ☑ | 博客中的 GitHub 地址、学号均为真实值 |
 | ☑ | 提交次数 ≥ 3，作者归属本人，贡献者统计正确 |
 | ☑ | GitHub 提交历史截图已放进博客第 7 节 |
 | ☑ | PR #1 已创建并合并、Release v1.0.0 已发布 |
-| ☐ | 云服务器 33555 端口可访问（需在服务器上启动 Web 服务并放行安全组，见 `docs/DEPLOY.md`） |
 | ☑ | 作业描述表、目录、PSP 表、贡献度齐全 |
 | ☑ | 视频证据可用（CSDN 发布版已用 GitHub `demo.mp4` 链接替换占位符） |
 | ☑ | CSDN 发布版与发布指引已备好，正文无 `YOUR_` 占位符、无本地相对路径 |
 | ☐ | 博客在 **11-17 23:59 前**发布，且已预留审核时间 |
-
-> **关于云端部署地址**：按本人要求，在线地址已切换为云服务器
-> `http://103.236.97.121:33555`。切换时本机实测：服务器 `80` 端口返回云厂商
-> 「未备案 / 网站无法访问」拦截页，`33555` 端口 TCP 可连但 HTTP 请求被重置，
-> 且 `22` 端口用所给密码的常用用户名均认证失败，故未能代为上传站点或重截运行图。
-> 需在服务器上启动 Nginx 监听 `33555`、放行安全组并确认 SSH 用户名（见 `docs/DEPLOY.md`），
-> 部署完成后用浏览器打开该地址截一张图覆盖 `assets/screen_online.png` 即可。
-> **登录密码不得写入公开仓库或博客**。

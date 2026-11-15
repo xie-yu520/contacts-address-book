@@ -1,7 +1,7 @@
 # 通讯录 Address Book —— 软件工程（FZU–MU）课程作业博客
 
 > 本文是软件工程（FZU–MU）课程作业记录。项目是一个**纯前端、零构建**的通讯录应用，
-> 实现了收藏联系人、多联系方式、Excel 导入导出，并已发布到公网。
+> 实现了收藏联系人、多联系方式、Excel 导入导出。
 > 源码、提交历史、PR、Release、运行截图与完整演示视频均可在线查看，文中所有链接均为公网地址。
 
 ## 作业描述
@@ -27,7 +27,6 @@
 | --- | --- |
 | GitHub 仓库 | [`https://github.com/xie-yu520/contacts-address-book`](https://github.com/xie-yu520/contacts-address-book) |
 | 代码规范 | [`docs/CODE_STYLE.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md) |
-| 在线访问地址 | [`103.236.97.121:33555`](http://103.236.97.121:33555)（云服务器 ECS，非 localhost，对应作业 1.4） |
 | 演示视频 | [`assets/demo.mp4`](https://github.com/xie-yu520/contacts-address-book/blob/main/assets/demo.mp4)（43 秒完整运行演示，可直接提交） |
 | 发布执行记录 | [`docs/SUBMIT.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/SUBMIT.md)（push / PR / Release 实际执行记录） |
 | 示例数据 | [`docs/通讯录示例.xlsx`](https://github.com/xie-yu520/contacts-address-book/raw/main/docs/通讯录示例.xlsx)（可直接用于测试「导入」） |
@@ -307,17 +306,6 @@ function parseHeader(raw) {
 > CSDN 正文不便内嵌本地 MP4，因此以仓库文件作为可核验的视频证据。
 > 如需站内播放，可在 CSDN 编辑器「插入视频」中上传同一文件，再把生成的链接补到 5.5 节。
 
-### 5.6 云端部署：公网可访问
-
-![线上运行截图](https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_online.png)
-
-作业 1.4 的可选加分项：把纯静态站点部署到云服务器 `103.236.97.121:33555`
-（无需构建、无需后端），浏览器直接打开[在线地址](http://103.236.97.121:33555)即可使用。
-部署时把 `index.html`、`css/`、`js/`、`vendor/` 上传到服务器，由 Nginx 监听 `33555` 端口对外提供静态文件；
-上图为项目在公网环境运行的实拍页面，顶栏、搜索、导入/导出、收藏与详情均正常。
-数据仍保存在浏览器 `localStorage`，因此不同设备之间不共享 —— 这是纯静态方案的固有限制，如实说明。
-部署命令、Nginx 配置与验证清单见 [`docs/DEPLOY.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/DEPLOY.md)。
-
 ## 6. 测试与验证
 
 Excel 是最容易出错的部分（格式、表头、编码、往返一致性），因此单独抽出来做了自动化测试：
@@ -376,7 +364,7 @@ $ node test/excel.spec.js
 | 6 | `daad6c2` | `chore: 忽略本地工作区缓存目录` | `.gitignore` |
 | 7 | `f2674e9` | `docs: 新增 CHANGELOG 并标记 1.0.0 版本内容` | `CHANGELOG.md`、`v1.0.0` 标签 |
 
-之后还有「补齐发布材料」「回填仓库地址与部署证据」「同步提交材料」等文档提交，
+之后还有「补齐发布材料」「回填仓库地址」「同步提交材料」等文档提交，
 以及 `Merge pull request #1` 的合并提交，完整列表以上方 GitHub Commits 页为准。
 提交遵循 Conventional Commits，且**每次功能提交都对应一个可运行的阶段**（自底向上：
 规范 → 数据层 → 转换层 → 视图层 → 文档 → 发版），而不是最后一次性 `git add .`。
@@ -464,7 +452,7 @@ $ node test/excel.spec.js
 
 后续可以继续做的方向：
 
-- **账号体系与多端同步**：1.4 的云服务器部署已完成，下一步是接后端把 `localStorage`
+- **账号体系与多端同步**：下一步可以接后端把 `localStorage`
   换成数据库，配合登录实现多端同步（目前数据在浏览器本地，不同设备不共享）；
 - **联系人分组与标签**：目前只有「收藏」一个维度，可以扩展成多标签；
 - **导入冲突让用户选**：现在同名是「自动合并」，可以做成对比界面让用户逐条决定保留哪边；

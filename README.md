@@ -2,7 +2,6 @@
 
 > 软件工程（FZU–MU）课程作业 · 个人项目
 > 一个**纯前端、零构建**的通讯录应用：支持收藏联系人、多联系方式、Excel 导入导出。
-> 在线体验：<http://103.236.97.121:33555>
 
 ![HTML5](https://img.shields.io/badge/HTML5-CSS3-JavaScript-blue)
 ![build](https://img.shields.io/badge/build-none-success)
@@ -51,7 +50,6 @@ python -m http.server 8080
 ├── test/excel.spec.js      # Excel 往返测试（node 运行，无第三方依赖）
 ├── docs/
 │   ├── CODE_STYLE.md       # 代码规范
-│   ├── DEPLOY.md           # 云端部署说明（可选项 1.4）
 │   ├── SUBMIT.md           # 提交前清单：push / PR / Release / 发博客
 │   └── 通讯录示例.xlsx      # 可直接用于体验「导入」的示例文件
 ├── blog/
@@ -59,7 +57,7 @@ python -m http.server 8080
 │   ├── CSDN-发布版.md       # CSDN 专用版：公网图床 / @[TOC] / 绝对链接，可直接粘贴发布
 │   ├── CSDN-发布指引.md     # 标题摘要标签、图片对照表、发布后检查清单
 │   └── CSDN-预览.html       # 发布效果预览页（浏览器直接打开）
-├── assets/                 # 5 张界面/部署截图 + 2 张提交历史图 + 架构图 + demo.mp4
+├── assets/                 # 4 张界面截图 + 2 张提交历史图 + 架构图 + demo.mp4
 ├── CHANGELOG.md            # 版本发布说明
 └── README.md
 ```
@@ -96,18 +94,7 @@ node test/excel.spec.js
 - [作业博客（归档版）](blog/博客-通讯录.md)
 - [CSDN 发布版博客](blog/CSDN-发布版.md) · [CSDN 发布指引](blog/CSDN-发布指引.md) · [发布效果预览](blog/CSDN-预览.html)
 - [提交前操作清单](docs/SUBMIT.md)（GitHub push / PR / Release / 博客发布）
-- [云端部署说明（1.4 可选项）](docs/DEPLOY.md)
 - [完整运行演示视频](assets/demo.mp4) · [GitHub 提交历史截图](assets/git_commits.png) · [本地 git log 汇总图](assets/git_log_summary.png)
-
-## 云端部署（作业 1.4，+15 分 · 已完成）
-
-在线地址：<http://103.236.97.121:33555>
-（云服务器 ECS，非 localhost；[运行截图](assets/screen_online.png)）。
-
-本项目零构建、纯静态：把 `index.html`、`css/`、`js/`、`vendor/` 上传到服务器，
-用 Nginx 监听 `33555` 端口即可对外提供页面，并在云控制台安全组放行该端口。
-完整命令与配置见 [docs/DEPLOY.md](docs/DEPLOY.md)；其他静态托管平台作为备选方案亦在其中。
-数据保存在浏览器 `localStorage`，不同设备之间不共享。
 
 ## License
 

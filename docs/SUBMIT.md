@@ -47,20 +47,26 @@ CSDN 发布版 5.5 节已把 `YOUR_VIDEO_URL` 换成 GitHub 上可在线预览 /
 
 ## 3. 环境备忘（以后 push 遇到网络错误时）
 
-本机系统代理 `http://127.0.0.1:28266` 对 `github.com` 返回 `CONNECT tunnel failed, 502`，
-但 `api.github.com` 与本机 `7890` 端口可用。若 `git push` 报 `schannel` / 502，改用：
+本机代理端口**会随网络环境变化**：先后出现过 `28266` 对 `github.com` 返回 502、
+`7890` 可用、`7890` 关闭后直连恢复可用。遇到 `Failed to connect ... over proxy` /
+`schannel` / 502 时，按下面顺序试：
 
 ```bash
 cd C:/Users/10445/Desktop/联系人
 TOKEN=$(gh auth token)
 AUTH=$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)
+HDR="AUTHORIZATION: basic $AUTH"
 
-git -c http.proxy=http://127.0.0.1:7890 \
-    -c http.extraHeader="AUTHORIZATION: basic $AUTH" \
-    -c http.version=HTTP/1.1 push origin main
+# A. 优先：直连（不走代理）—— 2026-11-15 最后一次成功用的就是这条
+git -c http.proxy= -c https.proxy= -c http.extraHeader="$HDR" -c http.version=HTTP/1.1 push origin main
+
+# B. 直连失败：改用当前环境变量里的代理端口
+PORT=$(echo "$HTTPS_PROXY" | grep -oE '[0-9]+$')
+git -c http.proxy="http://127.0.0.1:$PORT" -c http.extraHeader="$HDR" -c http.version=HTTP/1.1 push origin main
 ```
 
-> 首次失败是代理端口问题，不是账号或权限问题；`gh` CLI 已登录 `xie-yu520` 且具备 `repo` 权限。
+先用 `curl --noproxy '*' -o /dev/null -w '%{http_code}' https://github.com` 判断直连是否通。
+失败是代理端口问题，不是账号或权限问题；`gh` CLI 已登录 `xie-yu520` 且具备 `repo` 权限。
 
 ## 4. 交作业前最后核对
 

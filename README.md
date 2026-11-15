@@ -55,7 +55,7 @@ python -m http.server 8080
 │   ├── SUBMIT.md           # 提交前清单：push / PR / Release / 发博客
 │   └── 通讯录示例.xlsx      # 可直接用于体验「导入」的示例文件
 ├── blog/博客-通讯录.md       # 作业博客
-├── assets/                 # 4 张界面截图 + git_commits.png + demo.mp4（43 秒演示）
+├── assets/                 # 5 张界面/部署截图 + 2 张提交历史图 + demo.mp4（43 秒演示）
 ├── CHANGELOG.md            # 版本发布说明
 └── README.md
 ```
@@ -92,7 +92,7 @@ node test/excel.spec.js
 - [作业博客](blog/博客-通讯录.md)
 - [提交前操作清单](docs/SUBMIT.md)（GitHub push / PR / Release / 博客发布）
 - [云端部署说明（1.4 可选项）](docs/DEPLOY.md)
-- [完整运行演示视频](assets/demo.mp4) · [提交历史图](assets/git_commits.png)
+- [完整运行演示视频](assets/demo.mp4) · [GitHub 提交历史截图](assets/git_commits.png) · [本地 git log 汇总图](assets/git_log_summary.png)
 
 ## 云端部署（作业 1.4，+15 分 · 已完成）
 

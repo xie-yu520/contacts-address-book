@@ -123,7 +123,6 @@
 <li><a href="#9-psp">9. PSP 表</a></li>
 <li><a href="#10">10. 分工与贡献度</a></li>
 <li><a href="#11">11. 总结与后续改进</a></li>
-<li><a href="#12">12. 评分标准对照自查</a></li>
 <li><a href="#_3">附：参考资料</a></li>
 </ul>
 </li>
@@ -808,92 +807,13 @@ function parseHeader(raw) {
   可以引入编码探测后统一转码。</li>
 </ul>
 <hr />
-<h2 id="12">12. 评分标准对照自查</h2>
-<p>按作业第 3 节评分表逐条核对，避免提交时漏项：</p>
-<table>
-<thead>
-<tr>
-<th>评分项</th>
-<th>分值</th>
-<th>本博客/仓库中的对应证据</th>
-<th>状态</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>博客 Markdown 排版、GitHub 仓库链接、代码规范链接</td>
-<td>10</td>
-<td>本文含作业描述表、目录、12 个章节与代码块；第 1 节给出 <a href="https://github.com/xie-yu520/contacts-address-book">GitHub 仓库</a> 与 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md"><code>docs/CODE_STYLE.md</code></a></td>
-<td>✅</td>
-</tr>
-<tr>
-<td>功能实现思路、程序截图、分工说明</td>
-<td>20</td>
-<td>第 3 节模块划分 + 第 4 节六段实现思路与代码片段 + 第 5 节 5 张截图 + 43 秒完整演示视频 + 第 10 节个人项目说明</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>页面风格</td>
-<td>10</td>
-<td>设计变量、两栏卡片布局、哈希配色头像、Toast、空状态、快捷键、≤780px 响应式；截图见 5.1 / 5.4，说明见 4.6</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>收藏联系人</td>
-<td>25</td>
-<td>星标切换、收藏置顶、独立「收藏」标签页、收藏数实时统计；思路见 4.2，交互回归见第 6 节</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>多种联系方式</td>
-<td>10</td>
-<td>6 种类型、任意条数、动态增删、类型切换、逐条复制；思路见 4.3，截图见 5.2</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Excel 导入导出</td>
-<td>25</td>
-<td>导出一人一行/一类一列（同类多值动态展开）、导入别名识别/多值拆分/三档合并 + 导入前预览；思路见 4.4 / 4.5，往返测试见第 6 节，示例文件 <code>docs/通讯录示例.xlsx</code></td>
-<td>✅</td>
-</tr>
-<tr>
-<td>云端部署（可选加分）</td>
-<td>+15</td>
-<td><a href="https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE">公网在线地址</a>：纯静态站已发布为公网页面（非 localhost）；证据见 5.6 节与 <code>assets/screen_online.png</code>，方案见 <code>docs/DEPLOY.md</code></td>
-<td>✅ 已完成</td>
-</tr>
-<tr>
-<td>GitHub 仓库提交次数 ≥ 3</td>
-<td>—</td>
-<td>10 余次提交，全部归属 <code>xie-yu520</code>；第 7 节附真实 GitHub Commits 页截图与贡献者统计</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>发版本并发起 Pull Request</td>
-<td>—</td>
-<td><a href="https://github.com/xie-yu520/contacts-address-book/pull/1">PR #1</a> 已合并，<a href="https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0">Release v1.0.0</a> 已发布，<code>CHANGELOG.md</code> 与 <code>v1.0.0</code> 标签齐全</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>PSP 表 / 提交历史截图 / 贡献度</td>
-<td>—</td>
-<td>第 9 节 PSP 表、第 7 节 GitHub 提交历史截图、第 10 节贡献度 100%（学号 832401224）</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<p><strong>结论</strong>：基础分 100 分与可选加分 15 分对应的各项均已具备可核验证据 ——
-GitHub 公开仓库、10 余次提交、已合并的 PR #1、已发布的 Release v1.0.0、公网在线站点、
-5 张界面/部署截图、1 张模块架构图、1 张 GitHub 提交历史图、43 秒完整演示视频、
-15 项自动化测试全通过。</p>
-<hr />
 <h2 id="_3">附：参考资料</h2>
 <ul>
 <li><a href="https://docs.sheetjs.com/">SheetJS 文档</a></li>
 <li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li>
 <li><a href="https://www.conventionalcommits.org/">Conventional Commits</a></li>
 <li><a href="https://semver.org/lang/zh-CN/">语义化版本 SemVer</a></li>
-<li>作业要求与评分标准：Software Engineering (FZU–MU) 课程作业说明</li>
+<li>课程作业要求说明：Software Engineering (FZU–MU)</li>
 </ul>
 <blockquote>
 <p>本文为课程作业记录，源码与全部素材见上方 GitHub 仓库。</p>

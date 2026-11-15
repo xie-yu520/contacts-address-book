@@ -472,36 +472,12 @@ $ node test/excel.spec.js
 
 ---
 
-## 12. 评分标准对照自查
-
-按作业第 3 节评分表逐条核对，避免提交时漏项：
-
-| 评分项 | 分值 | 本博客/仓库中的对应证据 | 状态 |
-| --- | --- | --- | --- |
-| 博客 Markdown 排版、GitHub 仓库链接、代码规范链接 | 10 | 本文含作业描述表、目录、12 个章节与代码块；第 1 节给出 [GitHub 仓库](https://github.com/xie-yu520/contacts-address-book) 与 [`docs/CODE_STYLE.md`](https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md) | ✅ |
-| 功能实现思路、程序截图、分工说明 | 20 | 第 3 节模块划分 + 第 4 节六段实现思路与代码片段 + 第 5 节 5 张截图 + 43 秒完整演示视频 + 第 10 节个人项目说明 | ✅ |
-| 页面风格 | 10 | 设计变量、两栏卡片布局、哈希配色头像、Toast、空状态、快捷键、≤780px 响应式；截图见 5.1 / 5.4，说明见 4.6 | ✅ |
-| 收藏联系人 | 25 | 星标切换、收藏置顶、独立「收藏」标签页、收藏数实时统计；思路见 4.2，交互回归见第 6 节 | ✅ |
-| 多种联系方式 | 10 | 6 种类型、任意条数、动态增删、类型切换、逐条复制；思路见 4.3，截图见 5.2 | ✅ |
-| Excel 导入导出 | 25 | 导出一人一行/一类一列（同类多值动态展开）、导入别名识别/多值拆分/三档合并 + 导入前预览；思路见 4.4 / 4.5，往返测试见第 6 节，示例文件 `docs/通讯录示例.xlsx` | ✅ |
-| 云端部署（可选加分） | +15 | [公网在线地址](https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE)：纯静态站已发布为公网页面（非 localhost）；证据见 5.6 节与 `assets/screen_online.png`，方案见 `docs/DEPLOY.md` | ✅ 已完成 |
-| GitHub 仓库提交次数 ≥ 3 | — | 10 余次提交，全部归属 `xie-yu520`；第 7 节附真实 GitHub Commits 页截图与贡献者统计 | ✅ |
-| 发版本并发起 Pull Request | — | [PR #1](https://github.com/xie-yu520/contacts-address-book/pull/1) 已合并，[Release v1.0.0](https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0) 已发布，`CHANGELOG.md` 与 `v1.0.0` 标签齐全 | ✅ |
-| PSP 表 / 提交历史截图 / 贡献度 | — | 第 9 节 PSP 表、第 7 节 GitHub 提交历史截图、第 10 节贡献度 100%（学号 832401224） | ✅ |
-
-**结论**：基础分 100 分与可选加分 15 分对应的各项均已具备可核验证据 ——
-GitHub 公开仓库、10 余次提交、已合并的 PR #1、已发布的 Release v1.0.0、公网在线站点、
-5 张界面/部署截图、1 张模块架构图、1 张 GitHub 提交历史图、43 秒完整演示视频、
-15 项自动化测试全通过。
-
----
-
 ## 附：参考资料
 
 - [SheetJS 文档](https://docs.sheetjs.com/)
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [Conventional Commits](https://www.conventionalcommits.org/)
 - [语义化版本 SemVer](https://semver.org/lang/zh-CN/)
-- 作业要求与评分标准：Software Engineering (FZU–MU) 课程作业说明
+- 课程作业要求说明：Software Engineering (FZU–MU)
 
 > 本文为课程作业记录，源码与全部素材见上方 GitHub 仓库。

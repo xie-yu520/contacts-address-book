@@ -3,7 +3,7 @@
 > **已完成部署**：公网地址
 > <https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE>
 > （WorkBuddy 静态托管，非 localhost），证据截图 `assets/screen_online.png`。
-> 博客第 1 节、第 5.6 节与第 12 节自查表已同步标注访问地址与托管方式。
+> 博客第 1 节与第 5.6 节已同步标注访问地址与托管方式。
 >
 > 作业要求「部署在云服务器，如华为云 / 阿里云」，localhost 链接不计分；本项目采用公网静态托管。
 > 下文方案 A / B 是「改用自己的云服务器或其他静态托管平台」的替代做法，供后续扩展参考。
@@ -82,8 +82,7 @@ sudo nginx -t && sudo systemctl reload nginx
 
 1. `blog/博客-通讯录.md` 第 1 节「在线访问地址」已填公网 URL；
 2. 新增第 5.6 节「云端部署：公网可访问」，附 `assets/screen_online.png` 实拍页面；
-3. 第 12 节评分自查表中「云端部署」一行标为 ✅，并注明托管方式；
-4. `README.md` 顶部与「云端部署」章节已给出在线预览地址。
+3. `README.md` 顶部与「云端部署」章节已给出在线预览地址。
 
 > 截图为通过公网链接真实打开的页面渲染结果。若老师要求看到浏览器地址栏，
 > 用普通浏览器打开上面的公网地址自行截一张即可，无需修改仓库内容。

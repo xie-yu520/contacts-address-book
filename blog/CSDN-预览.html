@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通讯录 Address Book —— CSDN 发布预览</title>
+<style>
+  :root { --ink:#2c3038; --muted:#6b7280; --line:#e6eaf2; --blue:#3b63f6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#f4f6fa; color:var(--ink);
+         font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif; }
+  .notice { background:#eef3ff; border-bottom:1px solid #d7e2ff; color:#4a5b8c;
+            font-size:13px; text-align:center; padding:9px 14px; }
+  .paper { max-width:920px; margin:26px auto 60px; background:#fff; padding:46px 56px 60px;
+           border:1px solid #e9edf5; border-radius:10px; box-shadow:0 3px 18px rgba(20,27,45,.06); }
+  h1 { font-size:29px; line-height:1.4; margin:0 0 22px; color:#1f2937; }
+  h2 { font-size:22px; margin:38px 0 16px; padding-left:12px; border-left:4px solid var(--blue);
+       color:#1f2937; }
+  h3 { font-size:18px; margin:28px 0 12px; color:#26324a; }
+  p { margin:12px 0; }
+  a { color:var(--blue); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  strong { color:#1f2937; }
+  hr { border:none; border-top:1px solid var(--line); margin:30px 0; }
+  blockquote { margin:16px 0; padding:10px 18px; background:#f7f9fd;
+               border-left:4px solid #b9c9f5; color:#4a5468; font-size:14.5px; }
+  blockquote p { margin:5px 0; }
+  table { width:100%; border-collapse:collapse; margin:18px 0; font-size:14.5px; }
+  th, td { border:1px solid #dfe5ef; padding:9px 12px; text-align:left; vertical-align:top; }
+  th { background:#f3f6fc; font-weight:600; color:#33405c; }
+  tr:nth-child(even) td { background:#fbfcfe; }
+  img { display:block; max-width:100%; height:auto; margin:20px auto;
+        border:1px solid #e9edf5; border-radius:6px; }
+  pre { background:#282c34; color:#d6dae2; border-radius:8px; padding:18px 20px;
+        overflow-x:auto; font:13.5px/1.7 Consolas,Monaco,"Courier New",monospace; }
+  pre code { background:none; padding:0; color:inherit; font:inherit; }
+  code { background:#f1f3f8; color:#c0397a; padding:2px 6px; border-radius:4px;
+         font:13.5px Consolas,Monaco,"Courier New",monospace; }
+  ul, ol { padding-left:26px; }
+  li { margin:5px 0; }
+  .toc { background:#f8faff; border:1px solid #e2e9fb; border-radius:8px;
+         padding:14px 22px; margin:22px 0; }
+  .toc ul { margin:6px 0; padding-left:22px; }
+  .toc > ul { padding-left:4px; }
+  .toc li { font-size:14.5px; }
+  .toctitle { font-weight:700; color:#33405c; }
+  @media (max-width:700px) { .paper { padding:24px 18px; margin:12px; } h1 { font-size:23px; } }
+</style>
+</head>
+<body>
+<div class="notice">CSDN 发布效果预览 · 正式发布请复制 <b>blog/CSDN-发布版.md</b> 的正文 · 本页仅用于检查排版与图片</div>
+<div class="paper">
+<h1 id="address-book-fzumu">通讯录 Address Book —— 软件工程（FZU–MU）课程作业博客</h1>
+<blockquote>
+<p>本文是软件工程（FZU–MU）课程作业记录。项目是一个<strong>纯前端、零构建</strong>的通讯录应用，
+实现了收藏联系人、多联系方式、Excel 导入导出，并已发布到公网。
+源码、提交历史、PR、Release、运行截图与完整演示视频均可在线查看，文中所有链接均为公网地址。</p>
+</blockquote>
+<h2 id="_1">作业描述</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Course for This Assignment</td>
+<td>Software Engineering (FZU–MU)</td>
+</tr>
+<tr>
+<td>Team Name</td>
+<td>个人项目（Individual）—— 谢宇城</td>
+</tr>
+<tr>
+<td>Submission Blog</td>
+<td><a href="https://blog.csdn.net/2406_88072814">CSDN · 832401224谢宇城</a></td>
+</tr>
+<tr>
+<td>Assignment Requirements</td>
+<td>实现一个通讯录应用：① 支持收藏联系人与快捷访问；② 一位联系人可关联多种联系方式；③ 支持导出/导入 Excel（一人一行、一类信息一列）；④ 页面风格良好。需建立 GitHub 仓库（提交次数 ≥ 3）并提交博客。</td>
+</tr>
+<tr>
+<td>Objectives of This Assignment</td>
+<td>走完一个完整的小型软件生命周期：需求拆解 → 模块划分 → 编码实现 → 测试验证 → 文档与版本发布，练习前后端数据建模、文件格式互转与 Git 协作流程。</td>
+</tr>
+<tr>
+<td>Other References</td>
+<td><a href="https://docs.sheetjs.com/">SheetJS 文档</a>、<a href="https://developer.mozilla.org/">MDN Web Docs</a>、<a href="https://www.conventionalcommits.org/">Conventional Commits</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">目录</h2>
+<div class="toc"><span class="toctitle">目录</span><ul>
+<li><a href="#address-book-fzumu">通讯录 Address Book —— 软件工程（FZU–MU）课程作业博客</a><ul>
+<li><a href="#_1">作业描述</a></li>
+<li><a href="#_2">目录</a></li>
+<li><a href="#1">1. 项目地址</a></li>
+<li><a href="#2">2. 需求分析与功能清单</a></li>
+<li><a href="#3">3. 模块设计</a></li>
+<li><a href="#4">4. 功能实现思路</a><ul>
+<li><a href="#41">4.1 数据模型：为什么用「联系方式数组」</a></li>
+<li><a href="#42">4.2 收藏联系人</a></li>
+<li><a href="#43">4.3 多联系方式</a></li>
+<li><a href="#44-excel">4.4 导出 Excel：动态列展开</a></li>
+<li><a href="#45-excel">4.5 导入 Excel：表头识别与合并策略</a></li>
+<li><a href="#46">4.6 页面风格与交互细节</a></li>
+</ul>
+</li>
+<li><a href="#5">5. 程序运行截图与视频</a><ul>
+<li><a href="#51">5.1 主界面：列表 + 详情，收藏置顶</a></li>
+<li><a href="#52">5.2 新建 / 编辑：多联系方式动态增删</a></li>
+<li><a href="#53">5.3 导入预览：先看后写</a></li>
+<li><a href="#54">5.4 移动端适配</a></li>
+<li><a href="#55">5.5 运行视频</a></li>
+<li><a href="#56">5.6 云端部署：公网可访问</a></li>
+</ul>
+</li>
+<li><a href="#6">6. 测试与验证</a></li>
+<li><a href="#7-github">7. GitHub 提交历史</a></li>
+<li><a href="#8">8. 开发过程中遇到的问题与解决</a></li>
+<li><a href="#9-psp">9. PSP 表</a></li>
+<li><a href="#10">10. 分工与贡献度</a></li>
+<li><a href="#11">11. 总结与后续改进</a></li>
+<li><a href="#12">12. 评分标准对照自查</a></li>
+<li><a href="#_3">附：参考资料</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h2 id="1">1. 项目地址</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub 仓库</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book"><code>https://github.com/xie-yu520/contacts-address-book</code></a></td>
+</tr>
+<tr>
+<td>代码规范</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md"><code>docs/CODE_STYLE.md</code></a></td>
+</tr>
+<tr>
+<td>在线访问地址</td>
+<td><a href="https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE"><code>wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host</code></a>（公网静态托管，非 localhost，对应作业 1.4）</td>
+</tr>
+<tr>
+<td>演示视频</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book/blob/main/assets/demo.mp4"><code>assets/demo.mp4</code></a>（43 秒完整运行演示，可直接提交）</td>
+</tr>
+<tr>
+<td>发布执行记录</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/SUBMIT.md"><code>docs/SUBMIT.md</code></a>（push / PR / Release 实际执行记录）</td>
+</tr>
+<tr>
+<td>示例数据</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book/raw/main/docs/通讯录示例.xlsx"><code>docs/通讯录示例.xlsx</code></a>（可直接用于测试「导入」）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>本地运行</strong></p>
+<pre><code class="language-bash">git clone https://github.com/xie-yu520/contacts-address-book.git
+cd contacts-address-book
+# 方式一：直接双击 index.html
+# 方式二：起一个静态服务器
+python -m http.server 8080   # 打开 http://localhost:8080
+</code></pre>
+<p>项目为纯前端实现，<strong>没有构建步骤</strong>：不需要 <code>npm install</code>，不依赖 CDN，克隆后即可运行。</p>
+<h2 id="2">2. 需求分析与功能清单</h2>
+<p>把作业要求逐条拆成可验收的功能点，并标注在代码中的落点：</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>要求</th>
+<th>实现要点</th>
+<th>对应代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>收藏联系人（25 分）</td>
+<td>星标切换、收藏置顶排序、独立「收藏」标签页、收藏数量实时统计</td>
+<td><code>store.js: toggleStar / sortContacts</code>、<code>app.js: renderList</code></td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>多联系方式（10 分）</td>
+<td>一位联系人挂载 N 条联系方式，支持 6 种类型与任意增删</td>
+<td><code>store.js: normalizeContact</code>、<code>app.js: methodRowHtml</code></td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>导入导出（25 分）</td>
+<td>导出动态列展开；导入表头别名识别、多值拆分、去重合并预览</td>
+<td><code>excel.js: buildTable / rowsToContacts / parseHeader</code></td>
+</tr>
+<tr>
+<td>—</td>
+<td>页面风格（10 分）</td>
+<td>设计变量体系、卡片化两栏布局、空状态、Toast、响应式、快捷键</td>
+<td><code>css/style.css</code></td>
+</tr>
+<tr>
+<td>—</td>
+<td>代码规范（10 分）</td>
+<td>三层单向依赖、JSDoc 注释、Conventional Commits</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md"><code>docs/CODE_STYLE.md</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>除必做项外，额外补充了：全局搜索、一键复制联系方式、导入前预览、导入模板下载、
+快捷键（<code>Ctrl/⌘ + K</code> 搜索、<code>Ctrl/⌘ + S</code> 保存、<code>Esc</code> 取消）与移动端适配。</p>
+<h2 id="3">3. 模块设计</h2>
+<p>先划分模块再动手写代码，避免所有逻辑堆在一个 <code>app.js</code> 里。整体是三层单向依赖：</p>
+<p><img alt="模块分层与数据流" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/architecture.png" /></p>
+<blockquote>
+<p>图为模块分层与数据流：<code>index.html</code> → 视图层 → 转换层 → 数据层 → <code>localStorage</code>，
+SheetJS 仅被转换层调用。整体是<strong>三层单向依赖</strong>，下层不反向依赖上层。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>职责</th>
+<th>对外接口</th>
+<th>是否依赖 DOM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>store.js</code></td>
+<td>领域模型、字段清洗、增删改查、收藏、搜索、导入合并、持久化</td>
+<td><code>Store.init/add/update/remove/toggleStar/query/mergeImported</code></td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>excel.js</code></td>
+<td>联系人 ⇄ 二维表互转、表头解析、文件读写</td>
+<td><code>ExcelIO.buildTable/rowsToContacts/readFile/exportContacts</code></td>
+<td>否（仅 <code>readFile</code> 用浏览器 File API）</td>
+</tr>
+<tr>
+<td><code>app.js</code></td>
+<td>渲染、事件委托、界面状态机</td>
+<td>无（自执行）</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这样分层的好处</strong>：数据层和转换层不碰 DOM，可以直接在 Node 里跑单元测试
+（见第 6 节），不必为了测一个导出函数去启动浏览器。</p>
+<h2 id="4">4. 功能实现思路</h2>
+<h3 id="41">4.1 数据模型：为什么用「联系方式数组」</h3>
+<p>需求 1.2 要求「一位联系人可关联多个联系方式」，如果按 <code>phone</code>、<code>email</code>、<code>phone2</code> 这样
+平铺成字段，类型一多就爆炸且无法扩展。因此把联系方式抽成独立实体：</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;c_lq2x9a&quot;,
+  &quot;name&quot;: &quot;陈思远&quot;,
+  &quot;company&quot;: &quot;阿里巴巴集团&quot;,
+  &quot;note&quot;: &quot;实习内推联系人&quot;,
+  &quot;starred&quot;: true,
+  &quot;methods&quot;: [
+    { &quot;id&quot;: &quot;m_1&quot;, &quot;type&quot;: &quot;phone&quot;,   &quot;value&quot;: &quot;136 0013 6003&quot; },
+    { &quot;id&quot;: &quot;m_2&quot;, &quot;type&quot;: &quot;phone&quot;,   &quot;value&quot;: &quot;0591-2286 6003&quot; },
+    { &quot;id&quot;: &quot;m_3&quot;, &quot;type&quot;: &quot;email&quot;,   &quot;value&quot;: &quot;chensy@alibaba-inc.com&quot; },
+    { &quot;id&quot;: &quot;m_4&quot;, &quot;type&quot;: &quot;address&quot;, &quot;value&quot;: &quot;浙江省杭州市余杭区文一西路 969 号&quot; }
+  ],
+  &quot;createdAt&quot;: 1762700000000,
+  &quot;updatedAt&quot;: 1762900000000
+}
+</code></pre>
+<p><code>type</code> 取值为 <code>phone / email / wechat / qq / address / other</code> 六种，由 <code>TYPES</code> 常量统一维护，
+界面的类型下拉框、徽章配色、Excel 表头全部从这一处派生 —— 以后要加「传真」，只改一个数组。</p>
+<p>所有外部数据入口（Excel、localStorage、表单草稿）都经过同一个 <code>normalizeContact()</code>：</p>
+<ul>
+<li>字段统一 <code>trim</code>，<code>null/undefined</code> 归一为空串；</li>
+<li>丢弃值为空的联系方式；</li>
+<li>同一联系人内 <code>type + value</code> 去重；</li>
+<li>姓名与联系方式同时为空则判定为无效数据丢弃；</li>
+<li>补齐 <code>id</code>、<code>createdAt</code>、<code>updatedAt</code>。</li>
+</ul>
+<p><strong>一个入口做校验</strong>，比在每个调用点各写一遍更不容易漏。</p>
+<h3 id="42">4.2 收藏联系人</h3>
+<p>收藏是最简单的需求，但要做顺，需要三处联动：</p>
+<ol>
+<li><strong>状态</strong>：<code>contact.starred</code> 布尔字段；</li>
+<li><strong>排序</strong>：<code>sortContacts()</code> 始终把收藏项排在最前，其次按姓名（<code>localeCompare('zh-Hans-CN')</code> 实现中文拼音序）：</li>
+</ol>
+<pre><code class="language-js">function sortContacts(list) {
+  return list.slice().sort(function (a, b) {
+    if (a.starred !== b.starred) return a.starred ? -1 : 1;   // 收藏置顶
+    const byName = a.name.localeCompare(b.name, 'zh-Hans-CN'); // 中文按拼音
+    if (byName !== 0) return byName;
+    return b.updatedAt - a.updatedAt;
+  });
+}
+</code></pre>
+<ol start="3">
+<li><strong>筛选</strong>：<code>query({ filter: 'starred' })</code> 只返回收藏项，标签页上的数字实时刷新。</li>
+</ol>
+<p>交互上，列表每一项右侧与详情页标题旁都有星标按钮，点击后 <code>toggleStar()</code> →
+重新渲染 → 计数、排序、标签页同时更新，不需要手动刷新任何东西。</p>
+<p>这里踩过一个小坑：<strong>取消收藏后列表会立刻重排</strong>，如果用「点击第 1 项」的脚本测试，
+第二次点到的其实是另一位联系人。所以列表项的事件全部用 <code>data-id</code> 定位，
+而不是依赖位置索引 —— 这也让事件委托实现得更干净。</p>
+<h3 id="43">4.3 多联系方式</h3>
+<p>编辑态下，「联系方式」是一个可增删的列表：每行 = 类型下拉框 + 输入框 + 删除按钮。</p>
+<ul>
+<li><strong>新增</strong>：点击「+ 添加一项」追加一行并自动聚焦输入框；</li>
+<li><strong>删除</strong>：只剩一行时不删除，而是清空内容，避免出现零输入框的尴尬状态；</li>
+<li><strong>占位提示联动</strong>：切换类型时更新提示文案（手机 → <code>138 0013 8000</code>，地址 → <code>省 / 市 / 区 + 详细地址</code>）；</li>
+<li><strong>保存</strong>：提交时读取所有行的值，过滤掉空值后交给 <code>Store</code>，由 <code>normalizeContact</code> 再去一次重。</li>
+</ul>
+<p>详情态按类型显示彩色字母徽章（手 / 邮 / 微 / Q / 址 / 他），鼠标悬停即可复制该条内容，
+省去「长按选中再复制」的麻烦。</p>
+<h3 id="44-excel">4.4 导出 Excel：动态列展开</h3>
+<p>作业要求「一人一行，一类信息一列」。真正的难点是：<strong>列数不固定</strong> ——
+有人 1 个手机号，有人 3 个。解决方案是「按本批数据的最大数量展开」：</p>
+<pre><code class="language-js">function planColumns(contacts) {
+  const max = {};                       // 统计每种类型最多出现几次
+  Store.TYPE_KEYS.forEach(k =&gt; { max[k] = 0; });
+  contacts.forEach(c =&gt; {
+    const counter = {};
+    c.methods.forEach(m =&gt; { counter[m.type] = (counter[m.type] || 0) + 1; });
+    Store.TYPE_KEYS.forEach(k =&gt; { if ((counter[k] || 0) &gt; max[k]) max[k] = counter[k]; });
+  });
+
+  const columns = [];
+  Store.TYPE_KEYS.forEach(key =&gt; {
+    let count = max[key];
+    if (count === 0 &amp;&amp; (key === 'phone' || key === 'email')) count = 1;  // 基础列始终保留
+    for (let i = 0; i &lt; count; i += 1) {
+      const label = count &gt; 1 ? Store.typeLabel(key) + (i + 1) : Store.typeLabel(key);
+      columns.push({ type: key, index: i, label: label });
+    }
+  });
+  return columns;
+}
+</code></pre>
+<p>于是 6 位联系人导出后的表头是：</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>收藏</th>
+<th>公司</th>
+<th>备注</th>
+<th>手机1</th>
+<th>手机2</th>
+<th>邮箱</th>
+<th>微信</th>
+<th>QQ</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈思远</td>
+<td>是</td>
+<td>阿里巴巴集团</td>
+<td>实习内推联系人</td>
+<td>136 0013 6003</td>
+<td>0591-2286 6003</td>
+<td>chensy@alibaba-inc.com</td>
+<td></td>
+<td></td>
+<td>浙江省杭州市…</td>
+</tr>
+<tr>
+<td>刘佳</td>
+<td>否</td>
+<td>自由职业</td>
+<td></td>
+<td></td>
+<td></td>
+<td>liujia.design@qq.com</td>
+<td>liujia_design</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>只有一个人有多个手机号时才会出现「手机2」；某类型没人填就不生成该列（手机、邮箱除外，保证基础列稳定）。</p>
+<p>写出文件用 SheetJS 的 <code>aoa_to_sheet</code>（二维数组 → 工作表），并做了三件事提升可用性：
+设置列宽、冻结首行式的自动筛选（<code>!autofilter</code>）、文件名带时间戳 <code>通讯录_20261115_2012.xlsx</code>。</p>
+<blockquote>
+<p><strong>前导零陷阱</strong>：手机号如果在 Excel 里被当成数字，<code>013800138000</code> 会变成 <code>13800138000</code>。
+这里所有单元格都以<strong>字符串</strong>写入工作表（<code>aoa_to_sheet</code> 对 string 生成文本型单元格），
+导入时用 <code>sheet_to_json({ raw: false })</code> 读格式化后的文本，两端都不会丢字符。</p>
+</blockquote>
+<h3 id="45-excel">4.5 导入 Excel：表头识别与合并策略</h3>
+<p>导入分三步：<strong>解析 → 预览 → 写入</strong>。</p>
+<p><strong>第一步：表头识别。</strong>
+用户手里的 Excel 未必用我的表头，因此先把表头文本标准化（去空格、去冒号、转小写），
+再用正则把「末尾数字」拆出来，最后查别名表：</p>
+<pre><code class="language-js">const TYPE_ALIASES = {
+  phone: ['手机', '手机号', '电话', '联系电话', 'phone', 'mobile', 'tel'],
+  email: ['邮箱', '邮件', '电子邮箱', 'email', 'mail'],
+  // ...
+};
+
+function parseHeader(raw) {
+  const text = String(raw).replace(/\s+/g, '').replace(/[:：]/g, '').toLowerCase();
+  const matched = text.match(/^(.*?)(\d+)?$/);   // 「手机2」→ base=手机, index=1
+  const base = matched[1];
+  const index = matched[2] ? Math.max(0, parseInt(matched[2], 10) - 1) : 0;
+  // 查 FIELD_ALIASES / TYPE_ALIASES，命中即返回 { kind, type|field, index }
+}
+</code></pre>
+<p>这样 <code>手机</code>、<code>手机2</code>、<code>Phone</code>、<code>电话</code> 都能落到正确的列，<strong>列顺序随意、多余列自动忽略</strong>。
+找不到「姓名」列时直接抛错并提示用户下载模板，而不是导进去一堆脏数据。</p>
+<p><strong>第二步：单元格多值拆分。</strong>
+一个格里写 <code>138…；139…</code> 很常见，按 <code>; ； 、 |</code> 拆开；但<strong>地址列不拆</strong>，
+因为「省、市、区」里本来就有顿号。这类「规则要有例外」的细节，不写下来下次一定忘。</p>
+<p><strong>第三步：合并策略。</strong>
+导入最容易出问题的是「重复导入」。<code>mergeImported()</code> 定义了三档：</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>处理</th>
+<th>计入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通讯录里没有同名联系人</td>
+<td>新增一条</td>
+<td><code>added</code></td>
+</tr>
+<tr>
+<td>同名，且带来的联系方式<strong>全部已存在</strong></td>
+<td>跳过（重复数据）</td>
+<td><code>skipped</code></td>
+</tr>
+<tr>
+<td>同名，但带有新的联系方式/公司</td>
+<td>合并进已有联系人，只补缺失项</td>
+<td><code>merged</code></td>
+</tr>
+</tbody>
+</table>
+<p>写入前会弹出预览：解析到多少条、跳过多少行无效数据、前 8 条长什么样，
+用户确认后才真正落库 —— 避免「点错了文件，通讯录被污染」这种不可逆操作。</p>
+<p><img alt="导入预览" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_import.png" /></p>
+<h3 id="46">4.6 页面风格与交互细节</h3>
+<p>视觉上没有堆组件，而是先定一套设计变量（颜色、圆角、阴影、字体），再统一引用：</p>
+<pre><code class="language-css">:root {
+  --primary: #3b63f6;
+  --primary-weak: #eef2ff;
+  --border: #e6eaf2;
+  --radius-md: 12px;
+  --shadow-1: 0 1px 2px rgba(20, 27, 45, 0.05);
+}
+</code></pre>
+<p>具体落到界面上的点：</p>
+<ul>
+<li><strong>两栏卡片布局</strong>：左侧 342px 联系人列表 + 右侧详情/编辑区，主次分明；</li>
+<li><strong>头像自动配色</strong>：对姓名做哈希取 8 套柔和色板之一，列表不会一片灰；</li>
+<li><strong>空状态</strong>：列表为空、搜索无结果、未选中联系人各有独立文案，不留白屏；</li>
+<li><strong>移动端</strong>：≤780px 自动切单栏，点联系人进入详情、左上角返回；≤560px 顶栏改为两行，搜索框独占一行；</li>
+<li><strong>无障碍</strong>：所有按钮有 <code>aria-label</code>，编辑区 <code>label for</code> 关联，<code>Esc</code> / <code>Ctrl+S</code> 等快捷键；</li>
+<li><strong>反馈</strong>：所有增删改、复制、导入导出都有 Toast 提示，不弹 <code>alert</code>。</li>
+</ul>
+<h2 id="5">5. 程序运行截图与视频</h2>
+<h3 id="51">5.1 主界面：列表 + 详情，收藏置顶</h3>
+<p><img alt="主界面" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_home.png" /></p>
+<p>图中「陈思远 / 李静 / 张伟」三位被收藏的联系人排在最前，姓名右侧为实心星标；
+详情区展示 4 条不同类型的联系方式（两个手机号 + 邮箱 + 地址），可逐条复制。</p>
+<h3 id="52">5.2 新建 / 编辑：多联系方式动态增删</h3>
+<p><img alt="编辑界面" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_edit.png" /></p>
+<h3 id="53">5.3 导入预览：先看后写</h3>
+<p><img alt="导入预览" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_import.png" /></p>
+<h3 id="54">5.4 移动端适配</h3>
+<p><img alt="移动端适配" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_mobile.png" /></p>
+<blockquote>
+<p>图为 390px 窄屏下的单栏布局：列表与详情拆成两级，顶栏搜索框独占一行。</p>
+</blockquote>
+<h3 id="55">5.5 运行视频</h3>
+<p>仓库内附完整演示视频 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/assets/demo.mp4"><code>assets/demo.mp4</code></a>（43 秒，1280×800，H.264，约 750 KB）。
+视频由真实浏览器逐帧录制，底部字幕标注每一步，全程无剪辑、无模拟数据：</p>
+<table>
+<thead>
+<tr>
+<th>时间轴</th>
+<th>演示内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00:00–00:06</td>
+<td>载入示例数据，展示列表 + 详情两栏布局</td>
+</tr>
+<tr>
+<td>00:06–00:18</td>
+<td>查看多条联系方式、收藏联系人（一键星标、自动置顶）、「收藏」标签页筛选、全局搜索</td>
+</tr>
+<tr>
+<td>00:18–00:27</td>
+<td>新建联系人，逐条添加手机 / 邮箱 / 微信三种联系方式，勾选收藏并保存</td>
+</tr>
+<tr>
+<td>00:27–00:36</td>
+<td>导出 Excel；把刚导出的文件重新导入，先看解析预览，确认后展示同名去重不产生重复数据</td>
+</tr>
+<tr>
+<td>00:36–00:43</td>
+<td>390px 窄屏下的移动端单栏适配</td>
+</tr>
+</tbody>
+</table>
+<p><strong>在线观看 / 下载</strong>：<a href="https://github.com/xie-yu520/contacts-address-book/blob/main/assets/demo.mp4">GitHub 仓库中的 demo.mp4</a>（页面内可直接预览，也可点 Download 下载）；<a href="https://github.com/xie-yu520/contacts-address-book/raw/main/assets/demo.mp4">直链下载</a>。</p>
+<blockquote>
+<p>CSDN 正文不便内嵌本地 MP4，因此以仓库文件作为可核验的视频证据。
+如需站内播放，可在 CSDN 编辑器「插入视频」中上传同一文件，再把生成的链接补到 5.5 节。</p>
+</blockquote>
+<h3 id="56">5.6 云端部署：公网可访问</h3>
+<p><img alt="线上运行截图" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/screen_online.png" /></p>
+<p>作业 1.4 的可选加分项已完成：把纯静态站点发布到公网托管（无需构建、无需后端），
+浏览器直接打开<a href="https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE">在线地址</a>
+即可使用。上图为通过公网链接实际打开的页面，顶栏、搜索、导入/导出、收藏与详情均正常；
+数据仍保存在浏览器 <code>localStorage</code>，因此不同设备之间不共享 —— 这是纯静态方案的固有限制，如实说明。
+部署方案与验证清单见 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/DEPLOY.md"><code>docs/DEPLOY.md</code></a>。</p>
+<h2 id="6">6. 测试与验证</h2>
+<p>Excel 是最容易出错的部分（格式、表头、编码、往返一致性），因此单独抽出来做了自动化测试：
+<code>test/excel.spec.js</code> 用 Node 原生 <code>vm</code> 加载 <code>store.js</code> + <code>excel.js</code>，<strong>不需要安装任何依赖</strong>：</p>
+<pre><code class="language-bash">$ node test/excel.spec.js
+
+[1] 导出表结构
+  ✓ 固定列在前，联系方式列在后
+  ✓ 一人一行，行数 = 联系人数 + 表头
+  ✓ 收藏列导出为「是 / 否」
+  ✓ 同一联系人的多个手机号落在不同列
+  ✓ 只有一个值的类型不带序号
+[2] 导入解析
+  ✓ 表头别名与乱序列可识别
+  ✓ 单元格内的多个值按分隔符拆分
+  ✓ 地址列不拆分（保留逗号与顿号）
+  ✓ 空行忽略，无效行计入 skipped
+  ✓ 缺少姓名列时报错
+  ✓ 收藏列的多种写法都能识别
+[3] 往返一致性（导出 → xlsx 二进制 → 导入）
+  ✓ 导出再由导入还原，联系人数量与内容一致
+[4] 导入合并策略
+  ✓ 同名同资料判为重复并跳过
+  ✓ 同名但补充新联系方式时合并为一条
+  ✓ 收藏状态与查询过滤
+
+通过 15 项，失败 0 项
+</code></pre>
+<p>其中第 3 组是关键：<strong>导出 → 写成真实 xlsx 二进制 → 再读回来</strong>，逐字段比对姓名、公司、备注、
+收藏状态与联系方式集合。这样「导出能用但导不回来」的问题在提交前就会被发现。</p>
+<p>界面部分另外做了交互回归（新建、收藏、筛选、搜索、删除二次确认、空状态），
+并逐屏检查了 1440px 与 390px 两种宽度下的排版。</p>
+<h2 id="7-github">7. GitHub 提交历史</h2>
+<p><img alt="GitHub 提交历史截图" src="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/git_commits.png" /></p>
+<blockquote>
+<p>截图取自
+<a href="https://github.com/xie-yu520/contacts-address-book/commits/main"><code>github.com/xie-yu520/contacts-address-book/commits/main</code></a>，
+可见 PR #1 的合并记录、每条提交的作者 <code>xie-yu520</code> 与时间、以及 <code>Verified</code> 签名标记。
+<a href="https://cdn.jsdelivr.net/gh/xie-yu520/contacts-address-book@main/assets/git_log_summary.png">本地 git log 汇总图</a> 另给出发布阶段的分层提交与贡献者统计。</p>
+</blockquote>
+<p>按提交时间正序，核心开发阶段的 7 次提交如下（hash 为 push 后的真实短 hash）：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Hash</th>
+<th>提交信息</th>
+<th>涉及模块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>277a6ec</code></td>
+<td><code>chore: 初始化仓库与代码规范</code></td>
+<td>目录结构、<code>docs/CODE_STYLE.md</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>42c8d49</code></td>
+<td><code>feat(store): 联系人数据模型与本地存储层</code></td>
+<td><code>js/store.js</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>9c52840</code></td>
+<td><code>feat(excel): Excel 导入导出与往返解析</code></td>
+<td><code>js/excel.js</code>、<code>test/</code>、<code>vendor/</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>9b75e87</code></td>
+<td><code>feat(ui): 两栏界面、收藏筛选与多联系方式编辑</code></td>
+<td><code>index.html</code>、<code>css/</code>、<code>js/app.js</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>052d477</code></td>
+<td><code>docs: 补充 README、部署说明、示例数据与作业博客</code></td>
+<td><code>README.md</code>、<code>blog/</code>、<code>assets/</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>daad6c2</code></td>
+<td><code>chore: 忽略本地工作区缓存目录</code></td>
+<td><code>.gitignore</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>f2674e9</code></td>
+<td><code>docs: 新增 CHANGELOG 并标记 1.0.0 版本内容</code></td>
+<td><code>CHANGELOG.md</code>、<code>v1.0.0</code> 标签</td>
+</tr>
+</tbody>
+</table>
+<p>之后还有「补齐发布材料」「回填仓库地址与部署证据」「同步提交材料」等文档提交，
+以及 <code>Merge pull request #1</code> 的合并提交，完整列表以上方 GitHub Commits 页为准。
+提交遵循 Conventional Commits，且<strong>每次功能提交都对应一个可运行的阶段</strong>（自底向上：
+规范 → 数据层 → 转换层 → 视图层 → 文档 → 发版），而不是最后一次性 <code>git add .</code>。</p>
+<p><strong>贡献者提交数</strong>（GitHub Commits 页 / <code>git shortlog -sn --all</code>，个人项目只有一位贡献者）：</p>
+<table>
+<thead>
+<tr>
+<th>贡献者</th>
+<th>提交数</th>
+<th>占比</th>
+<th>承担内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谢宇城（xie-yu520）</td>
+<td>全部（10 余次）</td>
+<td>100%</td>
+<td>需求分析、模块设计、三层编码、样式、测试、文档与发版</td>
+</tr>
+</tbody>
+</table>
+<p>分支与版本：<code>main</code> → 从 <code>main</code> 拉出 <code>release/v1.0.0</code> → 打 <code>v1.0.0</code> 标签 →
+由 <code>release/v1.0.0</code> 向 <code>main</code> 发起
+<a href="https://github.com/xie-yu520/contacts-address-book/pull/1">Pull Request #1</a> 并合并 →
+发布 <a href="https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0">Release v1.0.0</a>。
+提交作者邮箱使用 GitHub 官方 noreply 地址，因此每条提交都能正确归属到本人账号。
+全过程见 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/SUBMIT.md"><code>docs/SUBMIT.md</code></a>。</p>
+<h2 id="8">8. 开发过程中遇到的问题与解决</h2>
+<p><strong>① 导出的列数不固定，怎么写表头？</strong>
+最初想固定 6 列（手机/邮箱/微信/QQ/地址/其他），但一个联系人可能有 3 个手机号，塞在一个格里
+就没法「一类信息一列」。于是改成先统计本批数据每种类型的最大出现次数，再动态展开
+<code>手机1/手机2/…</code>；只有一列时不带序号，保持表头简洁。这段逻辑抽成纯函数 <code>planColumns()</code>，
+单独测了「两个手机号 → 出现手机2」「只有一个微信号 → 微信列不带序号」。</p>
+<p><strong>② 手机号变科学计数法 / 丢前导零。</strong>
+用数字类型写单元格时，<code>013800138000</code> 会变成 <code>13800138000</code>，长号码还会显示成 <code>1.38E+11</code>。
+解决：导出时统一按字符串写入（文本型单元格），导入时用 <code>raw: false</code> 取格式化文本，
+保证号码「原样进出」。测试里专门放了一个 <code>0755-12345678</code> 这种带区号横线的号码来兜底。</p>
+<p><strong>③ 地址被拆成了好几段。</strong>
+多值拆分的分隔符里包含顿号「、」，而中文地址天然带顿号（<code>福建省、福州市</code>），
+一拆就散。最后给地址列加了豁免：<code>address</code> 类型整体作为一个值处理。这件事提醒我：
+<strong>通用规则一定要先想例外</strong>。</p>
+<p><strong>④ 重复导入导致通讯录翻倍。</strong>
+第一版直接 <code>push</code> 新数据，同一个文件导入两次就有两份。改为三档合并策略
+（同名同资料跳过 / 同名补新信息 / 否则新增），并在导入前弹预览告诉用户
+「新增几条、合并几条、跳过几条」，让结果可预期。</p>
+<p><strong>⑤ 取消收藏后列表重排，星标点错人。</strong>
+列表按「收藏优先」排序，取消收藏的瞬间该联系人会跳到后面，如果交互依赖索引就会错位。
+把所有列表项操作改成基于 <code>data-id</code> 的事件委托后问题消失，同时顺带解决了「重新渲染后
+事件监听失效」的问题 —— 事件绑在容器上，不绑在会被替换掉的行上。</p>
+<h2 id="9-psp">9. PSP 表</h2>
+<table>
+<thead>
+<tr>
+<th>PSP 2.1</th>
+<th>阶段</th>
+<th>预估耗时（min）</th>
+<th>实际耗时（min）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Planning</td>
+<td>计划：拆解作业要求、确定技术方案</td>
+<td>20</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>需求分析：功能清单与验收标准</td>
+<td>25</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Design</td>
+<td>设计：模块划分、数据模型、接口定义</td>
+<td>40</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Design Review</td>
+<td>设计评审：自查分层是否合理、是否可测试</td>
+<td>15</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>编码：<code>store.js</code> 数据层</td>
+<td>60</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>编码：<code>excel.js</code> 转换层（导出/导入/模板）</td>
+<td>100</td>
+<td>130</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>编码：<code>app.js</code> 视图层与交互</td>
+<td>120</td>
+<td>145</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>编码：<code>style.css</code> 页面样式与响应式</td>
+<td>100</td>
+<td>125</td>
+</tr>
+<tr>
+<td>Code Review</td>
+<td>代码检查：命名、注释、重复逻辑提取</td>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>测试：单元测试 + 交互回归 + 多分辨率检查</td>
+<td>70</td>
+<td>95</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>文档：README、代码规范、博客</td>
+<td>90</td>
+<td>110</td>
+</tr>
+<tr>
+<td>Postmortem</td>
+<td>复盘：问题记录与后续计划</td>
+<td>15</td>
+<td>15</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>675</strong></td>
+<td><strong>825</strong></td>
+</tr>
+</tbody>
+</table>
+<p>实际比预估多约 2.5 小时，主要超在 Excel 导入的边界情况（表头别名、多值拆分、去重策略）
+和移动端排版调试上 —— 这两块在动手前低估了复杂度。</p>
+<h2 id="10">10. 分工与贡献度</h2>
+<p>本次为<strong>个人项目</strong>，从需求分析、设计、编码、测试到文档均由本人独立完成。</p>
+<table>
+<thead>
+<tr>
+<th>成员</th>
+<th>学号</th>
+<th>承担内容</th>
+<th>贡献度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谢宇城</td>
+<td><code>832401224</code></td>
+<td>全部：需求分析、模块设计、数据层/转换层/视图层编码、样式、测试、文档</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11">11. 总结与后续改进</h2>
+<p>做完这个作业，最大的收获不是「会写一个通讯录」，而是三件具体的事：</p>
+<ol>
+<li><strong>先分层再写代码</strong>。数据层不碰 DOM，才可能在 Node 里几秒钟跑完 15 个用例；
+   如果没有这层隔离，Excel 的往返一致性根本没法自动验证。</li>
+<li><strong>边界情况才是工作量</strong>。主流程（增删改查）半天就写完了，剩下的时间全花在
+   表头别名、多值拆分、重复导入、前导零这些「用户一定会遇到但文档不会写」的地方。</li>
+<li><strong>可预期 &gt; 聪明</strong>。导入前先预览、删除前二次确认、失败给中文提示 —— 这类设计不炫技，
+   但明显降低了误操作成本。</li>
+</ol>
+<p>后续可以继续做的方向：</p>
+<ul>
+<li><strong>账号体系与多端同步</strong>：1.4 的公网静态托管已完成，下一步是接后端把 <code>localStorage</code>
+  换成数据库，配合登录实现多端同步（目前数据在浏览器本地，不同设备不共享）；</li>
+<li><strong>联系人分组与标签</strong>：目前只有「收藏」一个维度，可以扩展成多标签；</li>
+<li><strong>导入冲突让用户选</strong>：现在同名是「自动合并」，可以做成对比界面让用户逐条决定保留哪边；</li>
+<li><strong>CSV 编码兼容</strong>：目前 CSV 依赖浏览器按 UTF-8 解析，GBK 编码的 CSV 会乱码，
+  可以引入编码探测后统一转码。</li>
+</ul>
+<hr />
+<h2 id="12">12. 评分标准对照自查</h2>
+<p>按作业第 3 节评分表逐条核对，避免提交时漏项：</p>
+<table>
+<thead>
+<tr>
+<th>评分项</th>
+<th>分值</th>
+<th>本博客/仓库中的对应证据</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>博客 Markdown 排版、GitHub 仓库链接、代码规范链接</td>
+<td>10</td>
+<td>本文含作业描述表、目录、12 个章节与代码块；第 1 节给出 <a href="https://github.com/xie-yu520/contacts-address-book">GitHub 仓库</a> 与 <a href="https://github.com/xie-yu520/contacts-address-book/blob/main/docs/CODE_STYLE.md"><code>docs/CODE_STYLE.md</code></a></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>功能实现思路、程序截图、分工说明</td>
+<td>20</td>
+<td>第 3 节模块划分 + 第 4 节六段实现思路与代码片段 + 第 5 节 5 张截图 + 43 秒完整演示视频 + 第 10 节个人项目说明</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>页面风格</td>
+<td>10</td>
+<td>设计变量、两栏卡片布局、哈希配色头像、Toast、空状态、快捷键、≤780px 响应式；截图见 5.1 / 5.4，说明见 4.6</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>收藏联系人</td>
+<td>25</td>
+<td>星标切换、收藏置顶、独立「收藏」标签页、收藏数实时统计；思路见 4.2，交互回归见第 6 节</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>多种联系方式</td>
+<td>10</td>
+<td>6 种类型、任意条数、动态增删、类型切换、逐条复制；思路见 4.3，截图见 5.2</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Excel 导入导出</td>
+<td>25</td>
+<td>导出一人一行/一类一列（同类多值动态展开）、导入别名识别/多值拆分/三档合并 + 导入前预览；思路见 4.4 / 4.5，往返测试见第 6 节，示例文件 <code>docs/通讯录示例.xlsx</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>云端部署（可选加分）</td>
+<td>+15</td>
+<td><a href="https://wbapp-cgfofqfgwxxgtvkfj8jdqi.app.workbuddy.host/?sharecode=STHYHDZQYE">公网在线地址</a>：纯静态站已发布为公网页面（非 localhost）；证据见 5.6 节与 <code>assets/screen_online.png</code>，方案见 <code>docs/DEPLOY.md</code></td>
+<td>✅ 已完成</td>
+</tr>
+<tr>
+<td>GitHub 仓库提交次数 ≥ 3</td>
+<td>—</td>
+<td>10 余次提交，全部归属 <code>xie-yu520</code>；第 7 节附真实 GitHub Commits 页截图与贡献者统计</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>发版本并发起 Pull Request</td>
+<td>—</td>
+<td><a href="https://github.com/xie-yu520/contacts-address-book/pull/1">PR #1</a> 已合并，<a href="https://github.com/xie-yu520/contacts-address-book/releases/tag/v1.0.0">Release v1.0.0</a> 已发布，<code>CHANGELOG.md</code> 与 <code>v1.0.0</code> 标签齐全</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>PSP 表 / 提交历史截图 / 贡献度</td>
+<td>—</td>
+<td>第 9 节 PSP 表、第 7 节 GitHub 提交历史截图、第 10 节贡献度 100%（学号 832401224）</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：基础分 100 分与可选加分 15 分对应的各项均已具备可核验证据 ——
+GitHub 公开仓库、10 余次提交、已合并的 PR #1、已发布的 Release v1.0.0、公网在线站点、
+5 张界面/部署截图、1 张模块架构图、1 张 GitHub 提交历史图、43 秒完整演示视频、
+15 项自动化测试全通过。</p>
+<hr />
+<h2 id="_3">附：参考资料</h2>
+<ul>
+<li><a href="https://docs.sheetjs.com/">SheetJS 文档</a></li>
+<li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li>
+<li><a href="https://www.conventionalcommits.org/">Conventional Commits</a></li>
+<li><a href="https://semver.org/lang/zh-CN/">语义化版本 SemVer</a></li>
+<li>作业要求与评分标准：Software Engineering (FZU–MU) 课程作业说明</li>
+</ul>
+<blockquote>
+<p>本文为课程作业记录，源码与全部素材见上方 GitHub 仓库。</p>
+</blockquote>
+</div>
+</body>
+</html>

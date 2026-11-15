@@ -57,7 +57,8 @@ python -m http.server 8080
 ├── blog/
 │   ├── 博客-通讯录.md       # 作业博客（仓库归档版）
 │   ├── CSDN-发布版.md       # CSDN 专用版：公网图床 / @[TOC] / 绝对链接，可直接粘贴发布
-│   └── CSDN-发布指引.md     # 标题摘要标签、图片对照表、发布后自检
+│   ├── CSDN-发布指引.md     # 标题摘要标签、图片对照表、发布后自检
+│   └── CSDN-预览.html       # 发布效果预览页（浏览器直接打开）
 ├── assets/                 # 5 张界面/部署截图 + 2 张提交历史图 + 架构图 + demo.mp4
 ├── CHANGELOG.md            # 版本发布说明
 └── README.md
@@ -93,7 +94,7 @@ node test/excel.spec.js
 
 - [代码规范](docs/CODE_STYLE.md)
 - [作业博客（归档版）](blog/博客-通讯录.md)
-- [CSDN 发布版博客](blog/CSDN-发布版.md) · [CSDN 发布指引](blog/CSDN-发布指引.md)
+- [CSDN 发布版博客](blog/CSDN-发布版.md) · [CSDN 发布指引](blog/CSDN-发布指引.md) · [发布效果预览](blog/CSDN-预览.html)
 - [提交前操作清单](docs/SUBMIT.md)（GitHub push / PR / Release / 博客发布）
 - [云端部署说明（1.4 可选项）](docs/DEPLOY.md)
 - [完整运行演示视频](assets/demo.mp4) · [GitHub 提交历史截图](assets/git_commits.png) · [本地 git log 汇总图](assets/git_log_summary.png)
